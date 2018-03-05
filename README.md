@@ -1,2 +1,2 @@
-# canvasDemo
+# canvas
 :tada: about canvas
