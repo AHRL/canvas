@@ -1,0 +1,95 @@
+html,
+body,
+form,
+fieldset,
+legend,
+p,
+label,
+input,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+form {
+    border-radius: 16px;
+    box-shadow: 0 0 5px #c0bcc5;
+    background: #8caca8;
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+fieldset {
+    border: 0;
+}
+
+fieldset>div {
+    margin: 16px 0;
+}
+
+legend {
+    border-radius: 16px 16px 0 0;
+    font-size: 32px;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    color: seashell;
+    background: rosybrown;
+}
+
+p {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+
+label {
+    display: inline-block;
+    width: 30%;
+    height: 32px;
+    text-align: right;
+    font-size: 20px;
+}
+
+input {
+    font-size: 16px;
+    width: 50%;
+    line-height: 32px;
+}
+
+p:nth-child(4) input {
+    width: 20%;
+}
+
+#identifyBox {
+    display: inline-block;
+    width: 25%;
+    height: 48px;
+    /* background: cornsilk; */
+    margin-left: 5px;
+}
+
+a {
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+#sub {
+    background: rosybrown;
+    font-size: 20px;
+    color: seashell;
+    /* border: none; */
+    position: absolute;
+    right: 20px;
+    padding: 5px 10px;
+}

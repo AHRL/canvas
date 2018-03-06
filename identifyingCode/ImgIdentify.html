@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>验证码</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <form action="" method="POST" id="register">
+        <fieldset>
+            <legend>注册</legend>
+            <div>
+                <p>
+                    <label for="userName">用户名：</label>
+                    <input type="text" id="userName" name="userName">
+                </p>
+                <p>
+                    <label for="passWord">密码：</label>
+                    <input type="password" id="passWord" name="passWord">
+                </p>
+                <p>
+                    <label for="confirm">确认密码：</label>
+                    <input type="password" name="confirm" id="confirm">
+                </p>
+                <p>
+                    <label for="identifyCode">验证码：</label>
+                    <input type="text" id="identifyCode" name="identifyCode">
+                    <canvas id="identifyBox"></canvas>
+                    <a href="javascript:;" id="change">看不清，换一张</a>
+                </p>
+                <p>
+                    <button type="submit" id="sub">注册</button>
+                </p>
+            </div>
+        </fieldset>
+
+    </form>
+</body>
+<script src="js/index.js"></script>
+
+</html>
