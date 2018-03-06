@@ -7,6 +7,6 @@
 ***
 #### demo介绍
 >1.floatingBall
->>* [查看demo](https://ahrl.github.io/canvas/floatingBall/floatingBall.html)
+>>* [查看demo](https://ahrl.github.io/canvas/floatingBall/floatingBall.html)<br/>
 >2.identifyingCode
 >>*[查看demo](https://ahrl.github.io/canvas/identifyingCode/ImgIdentify.html)
