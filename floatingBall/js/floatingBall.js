@@ -14,6 +14,8 @@ var circleArr = [];
 var maxR = 5;
 var minR = 1;
 var distance = 100;
+var mousePos = {};
+var mouseNeighbor = [];
 //球的构造函数
 function Circle(x, y, r, moveX, moveY, neighbor) {
     this.x = x;
@@ -47,6 +49,7 @@ function mousePosition(ev) {
 }
 //判断一个圆附近的圆
 function neighborCircle() {
+    var flag = true;
     for (var i = 0; i < circleArr.length; i++) {
         circleArr[i].neighbor = [];
     }
@@ -66,32 +69,30 @@ function neighborCircle() {
 }
 //鼠标附近的球被吸引
 function attract() {
-    var mouseNeighbor = [];
-    var mousePos = {};
     document.onmousemove = function(ev) {
+        mouseNeighbor = [];
         ev = ev || window.event;
         mousePos = mousePosition(ev);
         mouseNeighbor.push(mousePos.x);
         mouseNeighbor.push(mousePos.y);
-        for (var i = 0; i < circleArr.length; i++) {
-            if (adjustDis(circleArr[i].x, circleArr[i].y, mousePos.x, mousePos.y) <= distance) {
-                mouseNeighbor.push(circleArr[i]);
-            }
-        }
-        for (var i = 0; i < mouseNeighbor.length; i++) {
-            drawLine(context, mousePos.x, mousePos.y,
-                mouseNeighbor[i].x, mouseNeighbor[i].y);
-            if (adjustDis(mouseNeighbor[i].x, mouseNeighbor[i].y, mousePos.x, mousePos.y) >= distance - 10) {
-                mouseNeighbor[i].moveX = (mousePos.x - mouseNeighbor[i].x) / (2 * distance);
-                mouseNeighbor[i].moveY = (mousePos.y - mouseNeighbor[i].y) / (2 * distance);
-            }
-            if (adjustDis(mouseNeighbor[i].x, mouseNeighbor[i].y, mousePos.x, mousePos.y) < distance - 10) {
-                mouseNeighbor[i].moveX = (mouseNeighbor[i].x - mousePos.x) / (2 * distance);
-                mouseNeighbor[i].moveY = (mouseNeighbor[i].y - mousePos.y) / (2 * distance);
-            }
+    }
+    for (var i = 0; i < circleArr.length; i++) {
+        if (adjustDis(circleArr[i].x, circleArr[i].y, mousePos.x, mousePos.y) <= distance) {
+            mouseNeighbor.push(circleArr[i]);
         }
     }
-    console.log(mousePos);
+    for (var i = 0; i < mouseNeighbor.length; i++) {
+        drawLine(context, mousePos.x, mousePos.y,
+            mouseNeighbor[i].x, mouseNeighbor[i].y);
+        if (adjustDis(mouseNeighbor[i].x, mouseNeighbor[i].y, mousePos.x, mousePos.y) >= distance - 15) {
+            mouseNeighbor[i].moveX = (mousePos.x - mouseNeighbor[i].x) / (3 * distance);
+            mouseNeighbor[i].moveY = (mousePos.y - mouseNeighbor[i].y) / (3 * distance);
+        }
+        if (adjustDis(mouseNeighbor[i].x, mouseNeighbor[i].y, mousePos.x, mousePos.y) < distance - 20) {
+            mouseNeighbor[i].moveX = (mouseNeighbor[i].x - mousePos.x) / (3 * distance);
+            mouseNeighbor[i].moveY = (mouseNeighbor[i].y - mousePos.y) / (3 * distance);
+        }
+    }
 }
 //计算距离
 function adjustDis(x, y, s, t) {
